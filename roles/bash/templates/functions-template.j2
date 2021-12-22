@@ -1,0 +1,27 @@
+#### GENERAL
+
+whereami () {
+echo ${GREEN}
+cat <<EOF
+{{ lookup('pipe', 'figlet -n -f small {{ dcname }}') }}
+
+EOF
+echo ${NO_COLOR}
+}
+
+info() {
+  printf '%s\n' "${BOLD}${GREY}>${NO_COLOR} $*"
+}
+
+warn() {
+  printf '%s\n' "${YELLOW}! $*${NO_COLOR}"
+}
+
+error() {
+  printf '%s\n' "${RED}x $*${NO_COLOR}" >&2
+}
+
+completed() {
+  printf '%s\n' "${GREEN}✓${NO_COLOR} $*"
+}
+

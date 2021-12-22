@@ -1,0 +1,4 @@
+- name: Genration of k8s customization file
+  template:
+    src: k8s-custom-template.j2
+    dest: "{{ config_dest_dir }}/include/k8s-custom.sh"

@@ -1,0 +1,17 @@
+[jumplinux]
+10.167.201.13 dcname="RR2C-R1" pksapi=api.r1.pks.dell.com
+10.167.96.13 dcname="RR2C-R2" pksapi=api.r2.pks.dell.com
+AUSPLJHPPKS01.us.dell.com dcname="PC1-P1" pksapi=api.p1.pks.dell.com
+10.145.16.13 dcname="PC1-P2" pksapi=api.p2.pks.dell.com
+pkspljhpz101.us.dell.com dcname="PC1-DMZ-P1Z1" pksapi=api.p1z1.pks.dell.com
+AUSPLJHSPKS01.us.dell.com dcname="S3B-S1" pksapi=api.s1.pks.dell.com
+10.182.20.13 dcname="S3B-S2" pksapi=api.s2.pks.dell.com
+pkspljhsz101.us.dell.com dcname="S3B-DMZ-S1Z1" pksapi=api.s1z1.pks.dell.com
+drmpljhspks01.isus.emc.com dcname="DURHAM-DP1" pksapi=api.dp1.pks.dell.com
+#                            	dcname="Durham-DP2"         pksapi=api.dp2.pks.dell.com
+10.105.196.13 dcname="DURHAM-DMZ-DP1Z1" pksapi=api.dp1z1.pks.dell.com
+LIMPLJHPKS01.emea.dell.com dcname="LIMERIC-LP1" pksapi=api.lp1.pks.dell.com
+
+[one]
+#10.167.201.13 dcname="RR2C-R1" interpreter_python=/usr/bin/python
+10.167.201.13 dcname="RR2C-R1" pksapi=api.r1.pks.dell.com

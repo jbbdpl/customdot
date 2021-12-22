@@ -1,0 +1,11 @@
+#- name: Adding BOSH conf to .bashrc
+#  ansible.builtin.lineinfile:
+#    path: ~/.bashrc
+#    #regexp: '^if [ -t 0 ]; then source {{ config_dest_dir }}/main.sh; fi'
+#    #line: if [ -t 0 ]; then source {{ config_dest_dir }}/main.sh; fi
+#    regexp: 'source /etc/customdot/bosh-login.env'
+#    line: '[[ $- == *i* ]] && source /etc/customdot/bosh-login.env'
+- name: Genration of BOSH custmization file (bosh+tkgi aliases and functions)
+  template:
+    src: bosh-custom-template.j2
+    dest: "{{ config_dest_dir }}/include/bosh-custom.sh"

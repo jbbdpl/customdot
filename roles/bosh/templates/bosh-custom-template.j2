@@ -1,0 +1,13 @@
+#### TKGI - Aliases and functions
+alias tk-login="tkgi login -a {{ pksapi }} -u {{ adm_login }} -k"
+
+
+
+#### BOSH - Aliases, functions and autocompetion
+alias b-dep="bosh deployments --column=name"
+alias b-vms="bosh vms -d $@"
+complete -W "$(b-dep | grep "-")" b-vms
+b-ssh() {
+  bosh -d $1 ssh $2
+}
+

@@ -1,0 +1,36 @@
+#- debug: msg="host is {{item}} {{inventory_hostname}} {{ dcname }}"
+#  with_items:  groups['jumplinux']
+
+- name: Create customdot directory
+  file:
+    path: "{{ config_dest_dir }}/{{item}}"
+    state: directory
+  with_items:
+    ['include','pureline']
+- name: Ensure customdot will be loaded from .bashrc
+  ansible.builtin.lineinfile:
+    path: ~/.bashrc
+    #regexp: '^if [ -t 0 ]; then source {{ config_dest_dir }}/main.sh; fi'
+    #line: if [ -t 0 ]; then source {{ config_dest_dir }}/main.sh; fi
+    regexp: '&& source {{ config_dest_dir }}/main.sh'
+    line: '[[ $- == *i* ]] && source {{ config_dest_dir }}/main.sh'
+- name: Genration of main file (everything starts from here)
+  template:
+    src: main-template.j2
+    dest: "{{ config_dest_dir }}/main.sh"
+  #with_items: "{{ groups['jumplinux'] }}"
+- name: Genration of function file
+  template:
+    src: functions-template.j2
+    dest: "{{ config_dest_dir }}/include/functions.sh"
+- name: Genration of aliases file
+  template:
+    src: aliases-template.j2
+    dest: "{{ config_dest_dir }}/include/aliases.sh"
+- name: Copy purelines config
+  copy:
+    src: "{{ playbook_dir }}/roles/bash/files/{{ item }}"
+    dest: "{{ config_dest_dir }}/pureline"
+    #mode: 0774
+  with_items:
+    ['pureline','pureline.conf']
