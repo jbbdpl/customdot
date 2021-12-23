@@ -1,4 +1,24 @@
-#### Kubectl - Aliases and functions
-source <(kubectl completion bash)
-alias k="kubectl"
+#kubectl
+alias k=kubectl
 complete -F __start_kubectl k
+source <(kubectl completion bash)
+
+export do="--dry-run=client -o yaml"
+
+alias kg="kubectl get"
+alias kgn="kubectl get namespace"
+alias kgp="kubectl get pods" # can be used ->   -o wide --show-labels"
+alias kgs="kubectl get service"
+alias kgi="kubectl get ingress"
+alias kgj="kubectl get job"
+alias kgd="kubectl get deployment"
+alias kgno="kubectl get nodes -o wide"
+
+alias kl="kubectl logs"
+
+alias kdel="kubectl delete"
+alias kdes="kubectl describe"
+
+alias kpf="kubectl port-forward"
+#switch to namespace in k8s
+alias ksn="kubectl config set-context --current --namespace"
