@@ -1,16 +1,16 @@
 - name: Setup local environment
-  hosts: all
-  user: admn_piotrowski
+  hosts: moja
+  user: admjakub_brand
   gather_facts: false
   roles:
-    - bosh
     - bash
+    - bosh
     - k8s
 #  tasks:
 #  - name: first debug task
 #    debug:
 #     msg: "no task"
   vars:
-    adm_login: admn_piotrowski
+    adm_login: admjakub_brand
     config_dest_dir: ~/customdot
     pureline: true
